@@ -1,6 +1,6 @@
 """Tool to visualize Triodos fund histories"""
 
-__version__ = "0.1.dev0"
+__version__ = "0.1.dev1"
 
 __all__ = [
     "CPI",
@@ -100,7 +100,7 @@ def cli():
     parser.add_argument(
         "--normalize",
         nargs=1,
-        default=100,
+        default=[100],
         type=float,
         help="Set 0 to disable normalization",
         metavar="12.3",
@@ -108,7 +108,7 @@ def cli():
     parser.add_argument(
         "--purchasing-power",
         nargs=1,
-        default="CPI",
+        default=["CPI"],
         type=str,
         choices=["CPI", "HICP", "off"],
         help="Choose index to account for inflation",
