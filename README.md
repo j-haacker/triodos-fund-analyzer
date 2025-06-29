@@ -21,10 +21,13 @@ If you (plan to) own shares of funds, you may want to know how they do.
 If that concerns Triodos funds, you can use this tool to visualize the
 course history, including optional corrections.
 
+### Check it out
+
+Check it out online https://triodos-fund-analyzer.streamlit.app/
+
 ### Install it
 
-Currently, you'll have to clone the repository and run `pip install -e
-.` from the corresponding directory.
+`pip install triodos_fund_analyzer`
 
 ### Use it
 
