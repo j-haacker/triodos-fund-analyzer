@@ -51,7 +51,8 @@ def plot_history(
     if deduce_costs:
         trading_value_history *= 0.991 if funds.get_acro(fund) == "TETEF" else 0.996
         relative_costs = pd.Series(
-            fund_details.loc[["fond_costs", "service_fee", "transaction_fee"]].sum()
+            # fund_details.loc[["fond_costs", "service_fee", "transaction_fee"]].sum()
+            fund_details.service_fee
             * trading_value_history.index.diff()
             / pd.Timedelta(365.25, "days"),
             trading_value_history.index,
