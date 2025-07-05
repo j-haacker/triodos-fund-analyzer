@@ -25,7 +25,7 @@ def _extract_main_series(df: pd.DataFrame) -> pd.Series:
     df = df.loc[df.iloc(1)[0].apply(lambda x: x.startswith("000000"))].iloc(1)[1:]
     df = df.loc[df.iloc(1)[0].apply(lambda x: len(x) > 4)]  # drop yearly values
     df.index = pd.to_datetime(df.iloc(1)[0], format="%Y %B")
-    return df.iloc(1)[-1]
+    return df.iloc(1)[-1].dropna()
 
 
 def get_CPI_series(harmonized: bool = False) -> pd.Series:
