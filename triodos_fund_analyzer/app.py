@@ -1,6 +1,7 @@
 """Browser app"""
 
 import matplotlib.pyplot as plt
+from pathlib import Path
 import streamlit as st
 
 import triodos_fund_analyzer as tfa
@@ -18,6 +19,11 @@ requires the poor to borrow money for their causes.
 It may be ethical if you give the profits of fund investments to
 [objectively](https://www.britannica.com/topic/effective-altruism)
 [good](https://plato.stanford.edu/entries/common-good/) projects.
+"""
+
+disclaimer = """\
+Use at your own risk. You are free to use this tool, but without any
+warranty. View the license for more information.
 """
 
 
@@ -91,5 +97,10 @@ if __name__ == "__main__":
     )
     st.sidebar.toggle("Consider dividends", True, key="consider_dividends")
     st.sidebar.toggle("Add baseline", True, key="add_baseline")
+    st.sidebar.write("----------")
+    st.sidebar.write(disclaimer)
+    with st.sidebar.popover("License"):
+        with open(Path(__file__).parent.parent / "LICENSE", "r") as f:
+            st.write(f.read())
 
     build_page()
